@@ -10,26 +10,38 @@ public class Settings_menu : MonoBehaviour
 
    Resolution[] rsl;
     List<string> resolutions;
-    public Dropdown dropdown;
+    public Dropdown dropdown_resolution, dropdown_quality;
 
     public bool isFullScreen = false;
 
-    /*public void Awake()
+    private GameObject settingsPanel;
+
+    public void Awake()
     {
+        GameObject.FindGameObjectWithTag("name").GetComponent<Text>().text = StaticVariables.Nickname;
+
         resolutions = new List<string>();// создание списка со значениями
-        rsl = Screen.resolutions;// получение доступных разрешений
+        rsl = Screen.resolutions; // получение доступных разрешений
         foreach (var i in rsl)
         {
             resolutions.Add(i.width + "x" + i.height);
         }
-        dropdown.ClearOptions(); //удаление элементов
-        dropdown.AddOptions(resolutions); //добавление элементов
+        //dropdown_resolution.ClearOptions(); //удаление элементов
+        dropdown_resolution.AddOptions(resolutions); //добавление элементов
     }
-    public void Resolution(int r)
+
+    public void Start()
     {
-        Screen.SetResolution(rsl[r].width, rsl[r].height, isFullScreen);
+        settingsPanel = GameObject.Find("Settings_Panel");
+        settingsPanel.SetActive(false);
     }
-    */
+    public void Resolution()
+    {
+        int r = dropdown_resolution.value;
+        Screen.SetResolution(rsl[r].width, rsl[r].height, isFullScreen);
+        
+    }
+    
     public void AudioVolume()
     {
         AudioListener.volume = slider.value;
@@ -38,15 +50,23 @@ public class Settings_menu : MonoBehaviour
    
     public void Quality()
     {
-        QualitySettings.SetQualityLevel(dropdown.value);
-        StaticVariables.Quality = dropdown.value;
-        Debug.Log(dropdown.value);
+        QualitySettings.SetQualityLevel(dropdown_quality.value);
+        Debug.Log(dropdown_quality.value);
     }
 
     public void FullScreenToggle()
     {
         isFullScreen = !isFullScreen;
         Screen.fullScreen = isFullScreen;
+        
+    }
+
+    public void SaveButton()
+    {
         StaticVariables.FullScreen = Screen.fullScreen;
+        StaticVariables.Audio = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>().volume;
+        StaticVariables.Quality = dropdown_quality.value;
+        StaticVariables.Nickname = GameObject.FindGameObjectWithTag("name").GetComponent<Text>().text;
+        
     }
 }
