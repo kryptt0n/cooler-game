@@ -10,24 +10,33 @@ public class TileMapClicker : MonoBehaviour
     private Camera mainCamera;
     public Transform Player1, Player2;
     private bool fpMove = true;
+    public GameObject QCanvas;
+    public static bool isRightAnswer;
     void Start()
     {
+        QCanvas.SetActive(false);
         map = GetComponent<Tilemap>();
         mainCamera = Camera.main;
+        QuestionLogic.isClicable = true;
+    }
+
+    private void Awake()
+    {
+        QCanvas = GameObject.Find("Question Canvas");     
     }
 
     void Update()
     {   
         if (fpMove)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && QuestionLogic.isClicable)
             {
                 MovePlayer(fpMove, Player1, tileToSet1);
             }
 
         } else
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && QuestionLogic.isClicable)
             {
                 MovePlayer(fpMove, Player2, tileToSet2);
             }
@@ -42,6 +51,7 @@ public class TileMapClicker : MonoBehaviour
 
     void MovePlayer(bool whichPlayer, Transform Player, TileBase tileToSet)
     {
+        
         Vector3 click = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3Int clickCellPos = map.WorldToCell(click);
@@ -50,8 +60,21 @@ public class TileMapClicker : MonoBehaviour
         {
             Player.position = map.CellToWorld(clickCellPos);
             Debug.Log(clickCellPos);
-            map.FloodFill(clickCellPos, tileToSet);
+            QCanvas.SetActive(true);
+            StartCoroutine(waitQCanvasClosed(clickCellPos, tileToSet));
             fpMove = !whichPlayer;
         }
     }
+
+    
+    IEnumerator waitQCanvasClosed(Vector3Int clickCellPos, TileBase tileToSet)
+    {
+        Debug.Log("Ждем пока закроется канвас");
+        yield return new WaitWhile(() => QCanvas.activeSelf);
+        Debug.Log("Закрылся");
+        if (isRightAnswer)
+            map.FloodFill(clickCellPos, tileToSet);
+    }
+    
+
 }

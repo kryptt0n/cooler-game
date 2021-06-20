@@ -11,7 +11,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestionLogic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileMapClicker.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/TileMapClicker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestionLogic.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1uARpXXTqJlyRzIsqHyjupxljV9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -49,8 +58,12 @@
       <option name="presentableId" value="Default" />
       <updated>1624106591923</updated>
       <workItem from="1624106603348" duration="5000" />
+      <workItem from="1624192576666" duration="1572000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />

@@ -1453,6 +1453,7 @@ MonoBehaviour:
   tileBoard: {fileID: 11400000, guid: 7810a9a5a08b5f540a49a3df88e995f6, type: 2}
   Player1: {fileID: 1090026057}
   Player2: {fileID: 586098723}
+  QCanvas: {fileID: 1295121989}
 --- !u!1 &135311468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1769,7 @@ GameObject:
   - component: {fileID: 653002282}
   m_Layer: 5
   m_Name: Answer3
-  m_TagString: Untagged
+  m_TagString: Answer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1839,7 +1840,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1251926391}
         m_TargetAssemblyTypeName: QuestionLogic, Assembly-CSharp
-        m_MethodName: PrintComponents
+        m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 653002282}
@@ -2071,7 +2072,7 @@ GameObject:
   - component: {fileID: 1108545802}
   m_Layer: 5
   m_Name: Answer2
-  m_TagString: Untagged
+  m_TagString: Answer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2142,7 +2143,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1251926391}
         m_TargetAssemblyTypeName: QuestionLogic, Assembly-CSharp
-        m_MethodName: PrintComponents
+        m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1108545802}
@@ -2498,8 +2499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 241}
-  m_SizeDelta: {x: 1358, y: 202.3445}
+  m_AnchoredPosition: {x: -0.000030518, y: 239.01337}
+  m_SizeDelta: {x: 1358, y: 206.3178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421855566
 MonoBehaviour:
@@ -5351,6 +5352,7 @@ MonoBehaviour:
   tileBoard: {fileID: 0}
   Player1: {fileID: 0}
   Player2: {fileID: 0}
+  QCanvas: {fileID: 0}
 --- !u!1 &2143925814
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,7 +5367,7 @@ GameObject:
   - component: {fileID: 2143925816}
   m_Layer: 5
   m_Name: Answer1
-  m_TagString: Untagged
+  m_TagString: Answer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5436,7 +5438,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1251926391}
         m_TargetAssemblyTypeName: QuestionLogic, Assembly-CSharp
-        m_MethodName: PrintComponents
+        m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2143925816}
